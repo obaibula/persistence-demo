@@ -3,6 +3,8 @@ package com.example;
 import com.example.entity.Person;
 import jakarta.persistence.Persistence;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.stat.Statistics;
 
 public class Demo {
     public static void main(String[] args) {

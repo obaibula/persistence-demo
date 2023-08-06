@@ -5,9 +5,13 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql:postgres"/>
-            <property name="javax.persistence.jdbc.user" value="postgres"/>
-            <property name="javax.persistence.jdbc.password" value="12345"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql:postgres"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="12345"/>
+
+            <!--<property name="hibernate.hikari.dataSource.url" value="jdbc:postgresql:postgres"/>
+            <property name="hibernate.hikari.dataSource.user" value="postgres"/>
+            <property name="hibernate.hikari.dataSource.password " value="12345"/>-->
 
             <!--<property name="javax.persistence.schema-generation.database.action" value="create"/>-->
             <property name="hibernate.physical_naming_strategy"
@@ -17,6 +21,9 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.highlight_sql" value="true"/>
+            <property name="hibernate.connection.provider_class" value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
+            <property name="hibernate.hikari.maximumPoolSize" value="20"/>
+            <property name="hibernate.connection.release_mode" value="after_transaction"/>
         </properties>
 
     </persistence-unit>
