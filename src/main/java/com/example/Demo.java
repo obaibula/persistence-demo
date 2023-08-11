@@ -20,11 +20,7 @@ public class Demo {
             em.getTransaction().begin();
 
             var task = new Task();
-            task.setStatus(StatusType.NEW);
-            var change = new Change();
-            change.setChangedBy("Oleh");
-            change.setChangedOn(new Date(System.currentTimeMillis()));
-            task.setChange(change);
+            task.setStatus(StatusType.PENDING);
             em.persist(task);
 
             em.getTransaction().commit();

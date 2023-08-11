@@ -1,10 +1,12 @@
 package com.example.entity;
 
+import io.hypersistence.utils.hibernate.type.basic.PostgreSQLEnumType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Type;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.util.Objects;
@@ -16,14 +18,15 @@ import java.util.Objects;
 @NoArgsConstructor
 @ToString
 public class Task {
+
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "task_status_info")
+    @Type(PostgreSQLEnumType.class)
+    StatusType status;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Enumerated(EnumType.STRING)
-    StatusType status;
-
-    Change change;
 
     @Override
     public final boolean equals(Object o) {
